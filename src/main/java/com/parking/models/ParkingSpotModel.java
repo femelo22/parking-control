@@ -2,6 +2,7 @@ package com.parking.models;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -93,7 +94,7 @@ public class ParkingSpotModel implements Serializable {
 	}
 
 	public void setRegistrationDate(LocalDateTime registrationDate) {
-		this.registrationDate = registrationDate;
+		this.registrationDate = LocalDateTime.now();
 	}
 
 	public String getResponsibleName() {
