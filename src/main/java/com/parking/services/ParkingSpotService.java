@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.parking.dtos.ParkingSpotDTO;
 import com.parking.models.ParkingSpotModel;
 import com.parking.repositories.ParkingSpotRepository;
+import com.parking.services.exceptions.ParkingSpotException;
 
 @Service
 public class ParkingSpotService implements IParkingSpotService {
@@ -26,15 +27,13 @@ public class ParkingSpotService implements IParkingSpotService {
 
 	
 	public void validationParkingSpot(ParkingSpotDTO dto) {
+		if(existsByParkingSpotNumber(dto.getParkingSpotNumber())) {
+			throw new ParkingSpotException("Conflict: Parking Spot is already in use!");
+		}
 		
 		if(existsByLicensePlateCar(dto.getLicensePlateCar())) {
-			new Exception();
+			throw new ParkingSpotException("Conflict: License Plate Car is already in use!");
 		}
-		
-		if(existsByParkingSpotNumber(dto.getParkingSpotNumber())) {
-			new Exception();
-		}
-		
 	}
 
 	
