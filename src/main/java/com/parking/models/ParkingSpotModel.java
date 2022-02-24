@@ -94,7 +94,7 @@ public class ParkingSpotModel implements Serializable {
 	}
 
 	public void setRegistrationDate(LocalDateTime registrationDate) {
-		this.registrationDate = LocalDateTime.now();
+		this.registrationDate = registrationDate;
 	}
 
 	public String getResponsibleName() {
