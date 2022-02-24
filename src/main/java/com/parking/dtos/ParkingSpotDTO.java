@@ -1,6 +1,7 @@
 package com.parking.dtos;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 
@@ -11,6 +12,7 @@ public class ParkingSpotDTO {
 	private String parkingSpotNumber;
 	
 	@NotBlank
+	@Size(max = 7)
 	@JsonAlias("license-plate-car")
 	private String licensePlateCar;
 	
