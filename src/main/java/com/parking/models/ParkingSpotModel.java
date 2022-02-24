@@ -40,6 +40,23 @@ public class ParkingSpotModel implements Serializable {
 	@Column(name = "responsible_name", nullable = false, length = 130)
 	private String responsibleName;
 	
+	
+	public ParkingSpotModel() {
+		
+	}
+
+	public ParkingSpotModel(UUID id, String parkingSpotNumber, String licensePlateCar, String brandCar, String modelCar,
+			String colorCar, LocalDateTime registrationDate, String responsibleName) {
+		super();
+		this.id = id;
+		this.parkingSpotNumber = parkingSpotNumber;
+		this.licensePlateCar = licensePlateCar;
+		this.brandCar = brandCar;
+		this.modelCar = modelCar;
+		this.colorCar = colorCar;
+		this.registrationDate = registrationDate;
+		this.responsibleName = responsibleName;
+	}
 
 	public UUID getId() {
 		return id;
