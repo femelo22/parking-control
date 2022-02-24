@@ -2,6 +2,8 @@ package com.parking.controllers;
 
 import java.time.LocalDateTime;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +29,9 @@ public class ParkingSpotController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity create(@RequestBody ParkingSpotDTO dto) {
+	public ResponseEntity create(@RequestBody @Valid ParkingSpotDTO dto) {
+		
+		this.service.validationParkingSpot(dto);
 		
 		ParkingSpotModel model = new ParkingSpotModel();
 		model.setRegistrationDate(LocalDateTime.now());
