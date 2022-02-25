@@ -47,5 +47,6 @@ public class ParkingSpotController {
 	public ResponseEntity findAll() {
 		return ResponseEntity.ok().body(service.findAll());
 	}
+	
 
 }
